@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pg": "^8.12.0",
+    "swagger-ui-express": "^5.0.1",
+    "yamljs": "^0.3.0"
+  },
+  "name": "pomar-api",
+  "version": "1.0.0",
+  "main": "testConnection.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "testdb": "node testConnection.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
