@@ -41,10 +41,6 @@ yarn.lock
 .DS_Store
 Thumbs.db
 
-# Arquivos de configuração de contêiner (Docker)
-docker-compose.yml
-Dockerfile
-
 # Documentação gerada automaticamente
 swagger.json
 swagger.yaml
