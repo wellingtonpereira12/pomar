@@ -1,0 +1,428 @@
+openapi: 3.0.0
+info:
+  title: API de Pomar
+  version: 1.0.0
+  description: API para gerenciar informações sobre colheitas, árvores, espécies e grupos em um pomar.
+tags:
+  - name: Colheita
+    description: Endpoints relacionados a colheitas no pomar.
+  - name: Árvore
+    description: Endpoints relacionados a árvores no pomar.
+  - name: Espécie
+    description: Endpoints relacionados a espécies no pomar.
+  - name: Grupo
+    description: Endpoints relacionados a grupos de árvores no pomar.
+paths:
+  /colheitas:
+    get:
+      summary: Listar todas as colheitas
+      tags:
+        - Colheita
+      responses:
+        '200':
+          description: Lista de colheitas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Colheita'
+    post:
+      summary: Criar uma nova colheita
+      tags:
+        - Colheita
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Colheita'
+      responses:
+        '201':
+          description: Colheita criada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Colheita'
+
+  /colheitas/{id}:
+    get:
+      summary: Obter uma colheita por ID
+      tags:
+        - Colheita
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID da colheita
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Colheita encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Colheita'
+        '404':
+          description: Colheita não encontrada
+
+    put:
+      summary: Atualizar uma colheita existente
+      tags:
+        - Colheita
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID da colheita a ser atualizada
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Colheita'
+      responses:
+        '200':
+          description: Colheita atualizada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Colheita'
+        '404':
+          description: Colheita não encontrada
+
+    delete:
+      summary: Deletar uma colheita por ID
+      tags:
+        - Colheita
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID da colheita a ser deletada
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Colheita deletada com sucesso
+        '404':
+          description: Colheita não encontrada
+
+  /arvores:
+    get:
+      summary: Listar todas as árvores
+      tags:
+        - Árvore
+      responses:
+        '200':
+          description: Lista de árvores
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Arvore'
+    post:
+      summary: Criar uma nova árvore
+      tags:
+        - Árvore
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Arvore'
+      responses:
+        '201':
+          description: Árvore criada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Arvore'
+
+  /arvores/{id}:
+    get:
+      summary: Obter uma árvore por ID
+      tags:
+        - Árvore
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID da árvore
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Árvore encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Arvore'
+        '404':
+          description: Árvore não encontrada
+
+    put:
+      summary: Atualizar uma árvore existente
+      tags:
+        - Árvore
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID da árvore a ser atualizada
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Arvore'
+      responses:
+        '200':
+          description: Árvore atualizada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Arvore'
+        '404':
+          description: Árvore não encontrada
+
+    delete:
+      summary: Deletar uma árvore por ID
+      tags:
+        - Árvore
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID da árvore a ser deletada
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Árvore deletada com sucesso
+        '404':
+          description: Árvore não encontrada
+
+  /especies:
+    get:
+      summary: Listar todas as espécies
+      tags:
+        - Espécie
+      responses:
+        '200':
+          description: Lista de espécies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Especie'
+    post:
+      summary: Criar uma nova espécie
+      tags:
+        - Espécie
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Especie'
+      responses:
+        '201':
+          description: Espécie criada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Especie'
+
+  /especies/{id}:
+    put:
+      summary: Atualizar uma espécie existente
+      tags:
+        - Espécie
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID da espécie a ser atualizada
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Especie'
+      responses:
+        '200':
+          description: Espécie atualizada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Especie'
+        '404':
+          description: Espécie não encontrada
+
+    delete:
+      summary: Deletar uma espécie por ID
+      tags:
+        - Espécie
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID da espécie a ser deletada
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Espécie deletada com sucesso
+        '404':
+          description: Espécie não encontrada
+
+  /grupos:
+    get:
+      summary: Listar todos os grupos
+      tags:
+        - Grupo
+      responses:
+        '200':
+          description: Lista de grupos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Grupo'
+    post:
+      summary: Criar um novo grupo
+      tags:
+        - Grupo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Grupo'
+      responses:
+        '201':
+          description: Grupo criado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Grupo'
+
+  /grupos/{id}:
+    put:
+      summary: Atualizar um grupo existente
+      tags:
+        - Grupo
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID do grupo a ser atualizado
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Grupo'
+      responses:
+        '200':
+          description: Grupo atualizado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Grupo'
+        '404':
+          description: Grupo não encontrado
+
+    delete:
+      summary: Deletar um grupo por ID
+      tags:
+        - Grupo
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID do grupo a ser deletado
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Grupo deletado com sucesso
+        '404':
+          description: Grupo não encontrado
+
+components:
+  schemas:
+    Colheita:
+      type: object
+      properties:
+        informacoes:
+          type: string
+          example: 'Colheita de teste'
+        data_colheita:
+          type: string
+          format: date
+          example: '2024-01-15'
+        peso_bruto:
+          type: number
+          format: float
+          example: 150.5
+        arvore_id:
+          type: integer
+          example: 1
+      required:
+        - arvore_id
+        - data_colheita
+        - informacoes
+        - peso_bruto
+
+    Arvore:
+      type: object
+      properties:
+        idade:
+          type: integer
+          example: 5
+        especie_id:
+          type: integer
+          example: 1
+        grupo_id:
+          type: integer
+          example: 1
+      required:
+        - idade
+        - especie_id
+        - grupo_id
+
+    Especie:
+      type: object
+      properties:
+        descricao:
+          type: string
+          example: 'Maçã'
+      required:
+        - descricao
+
+    Grupo:
+      type: object
+      properties:
+        nome:
+          type: string
+          example: 'Grupo A'
+        descricao:
+          type: string
+          example: 'Descrição do Grupo A'
+      required:
+        - nome
+        - descricao
