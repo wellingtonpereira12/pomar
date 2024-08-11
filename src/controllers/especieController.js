@@ -1,6 +1,5 @@
 const db = require('../db/queries');
 
-// Listar todas as espécies
 exports.getAllEspecies = async (req, res) => {
   try {
     const especies = await db.getEspecies();
@@ -10,7 +9,6 @@ exports.getAllEspecies = async (req, res) => {
   }
 };
 
-// Adicionar uma nova espécie
 exports.createEspecie = async (req, res) => {
   try {
     const especie = req.body;
@@ -21,7 +19,6 @@ exports.createEspecie = async (req, res) => {
   }
 };
 
-// Atualizar uma espécie existente
 exports.updateEspecie = async (req, res) => {
   try {
     const { id } = req.params;
@@ -36,7 +33,6 @@ exports.updateEspecie = async (req, res) => {
   }
 };
 
-// Remover uma espécie
 exports.deleteEspecie = async (req, res) => {
   try {
     const { id } = req.params;
