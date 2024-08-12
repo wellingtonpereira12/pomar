@@ -44,29 +44,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Colheita'
-
-  /colheitas/{id}:
-    get:
-      summary: Obter uma colheita por ID
-      tags:
-        - Colheita
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: ID da colheita
-          schema:
-            type: integer
-      responses:
-        '200':
-          description: Colheita encontrada
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Colheita'
-        '404':
-          description: Colheita não encontrada
-
     put:
       summary: Atualizar uma colheita existente
       tags:
