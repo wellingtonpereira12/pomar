@@ -17,7 +17,7 @@ Pomar API é uma aplicação desenvolvida para gerenciar árvores, espécies, gr
 
 2. Navegue até o diretório do projeto:
     ```bash
-    cd pomar-api
+    cd pomar
     ```
 
 3. Instale as dependências:
